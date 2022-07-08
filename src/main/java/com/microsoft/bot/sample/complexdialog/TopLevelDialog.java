@@ -50,7 +50,7 @@ public class TopLevelDialog extends ComponentDialog {
 
         // Ask the user to enter their name.
         PromptOptions promptOptions = new PromptOptions();
-        promptOptions.setPrompt(MessageFactory.text("Please enter your name."));
+        promptOptions.setPrompt(MessageFactory.text("Por favor ingresa tu nombre."));
         return stepContext.prompt("TextPrompt", promptOptions);
     }
 
@@ -61,7 +61,7 @@ public class TopLevelDialog extends ComponentDialog {
 
         // Ask the user to enter their age.
         PromptOptions promptOptions = new PromptOptions();
-        promptOptions.setPrompt(MessageFactory.text("Please enter your age."));
+        promptOptions.setPrompt(MessageFactory.text("Por favor ingresa tu edad."));
         return stepContext.prompt("NumberPrompt", promptOptions);
     }
 
@@ -72,7 +72,7 @@ public class TopLevelDialog extends ComponentDialog {
 
         // If they are too young, skip the review selection dialog, and pass an empty list to the next step.
         if (userProfile.getAge() < 25) {
-            return stepContext.getContext().sendActivity(MessageFactory.text("You must be 25 or older to participate."))
+            return stepContext.getContext().sendActivity(MessageFactory.text("Tenes que ser mayor de 25 para participar."))
                 .thenCompose(resourceResponse -> stepContext.next(new ArrayList<String>()));
         }
 
@@ -89,7 +89,7 @@ public class TopLevelDialog extends ComponentDialog {
 
         // Thank them for participating.
         return stepContext.getContext()
-            .sendActivity(MessageFactory.text(String.format("Thanks for participating, %s.", userProfile.getName())))
+            .sendActivity(MessageFactory.text(String.format("Gracias por participar, %s.", userProfile.getName())))
             .thenCompose(resourceResponse -> stepContext.endDialog(stepContext.getValues().get(USER_INFO)));
     }
 }

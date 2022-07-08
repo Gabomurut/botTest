@@ -27,7 +27,7 @@ public class ReviewSelectionDialog extends ComponentDialog {
     private static final String COMPANIES_SELECTED = "value-companiesSelected";
 
     private static List<String> companiesOptions = Arrays.asList(
-        "Adatum Corporation", "Contoso Suites", "Graphic Design Institute", "Wide World Importers"
+        "Chattigo", "Total Chat", "InConcert", "Rovotio"
     );
 
     public ReviewSelectionDialog() {
@@ -55,9 +55,9 @@ public class ReviewSelectionDialog extends ComponentDialog {
         // Create a prompt message.
         String message;
         if (list.size() == 0) {
-            message = String.format("Please choose a company to review, or `%s` to finish.", DONE_OPTION);
+            message = String.format("Por favor elegí una compañia para opinar, o `%s` para terminar.", DONE_OPTION);
         } else {
-            message = String.format("You have selected **%s**. You can review an additional company, or choose `%s` to finish.",
+            message = String.format("Seleccionaste **%s**. Podes elegir otra compañia, o elegir`%s` para terminar.",
                 list.get(0),
                 DONE_OPTION);
         }
@@ -71,7 +71,7 @@ public class ReviewSelectionDialog extends ComponentDialog {
 
         PromptOptions promptOptions = new PromptOptions();
         promptOptions.setPrompt(MessageFactory.text(message));
-        promptOptions.setRetryPrompt(MessageFactory.text("Please choose an option from the list."));
+        promptOptions.setRetryPrompt(MessageFactory.text("Por favor elegí una opción de la lista."));
         promptOptions.setChoices(ChoiceFactory.toChoices(options));
 
         // Prompt the user for a choice.
