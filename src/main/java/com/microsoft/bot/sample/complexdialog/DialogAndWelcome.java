@@ -35,9 +35,9 @@ public class DialogAndWelcome<T extends Dialog> extends DialogBot {
             .filter(member -> !StringUtils
                 .equals(member.getId(), turnContext.getActivity().getRecipient().getId()))
             .map(channel -> {
-                Activity reply = MessageFactory.text("Welcome to Complex Dialog Bot User. "
-                    + "This bot provides a complex conversation, with multiple dialogs. "
-                    + "Type anything to get started.");
+                Activity reply = MessageFactory.text("Bienvenidos al bot de prueba externo de Chattigo. "
+                    + "Este bot maneja múltiples diálogos. "
+                    + "Escribí algo y empezamos.");
 
                 return turnContext.sendActivity(reply);
             })
